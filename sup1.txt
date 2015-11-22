@@ -1,0 +1,105 @@
+Task 1
+
+1. Mutability - In imperative languages variables are mutable, i.e. their contents can be modified. 
+In functional this is not the case, you have to create a new "variable" and copy the contents of the initial.
+
+2. Abstraction - functional languages provide high level of abstraction. A programmer is concerned with the problem what the function does and not with how it does it.
+Although there is abstraction in imperative languages as well (interfaces, virtual classes), the level of abstraction in functional programming far exceeds that of its counterpart
+
+3. Efficiency - imperative languages are more efficient than functional, because functional languages are built on so many abstractions, they werent specifically optimized for a particular use case. 
+
+
+
+Task 2
+
+a. 
+int a; double d;
+b. 
+Person p = new Person(); //Person is a class and p is reference to the object of type Person. 
+//Operator new assigned p the reference to created object of type Person.
+c. 
+	public class Person {
+		//fields
+		private int age; //field
+		//constructor
+		Person(int yrs) {age = yrs;} //constructor
+		//methods
+		public int getAge() {return age;} //method
+	}
+	
+d.
+	Person p = new Person(23);
+	//Here we created an object of type Person with age 23. We can access it by reference p. 
+	//P points somewhere in the memory where this object is stored
+
+Task 3
+
+	Person p = null;
+	//reference to object Person points to null, basically nowhere
+	Person p2 = new Person();
+	//object of type Person is created and p2 points to this object;
+	p=p2;
+	//Now p points to the same object as p2. References are equal since point to one object
+	p = null;
+	//Now p points to null again,ie nowhere. But object still can be accessed by reference p2
+	
+Task 4
+	public static int sum(int[] a) {
+		int ans = 0;
+		for (int i = 0; i < a.length; i++)
+			ans+=a[i];
+		return ans;
+	}
+	
+	public static int[] cumsum(int[] a) {
+		int[] ans = new int[a.length]; //here we create additional var not to change the initial array
+		ans[0] = a[0];
+		for (int i = 1; i < a.length; i++)
+			ans[i] = ans[i-1] + a[i];
+		return ans;
+	}
+	
+	public static int[] positives(int[] a) {
+		int cnt = 0;
+		for (int i = 0; i < a.length; i++)
+			if (a[i] > 0) cnt++;
+			
+		int[] ans = new int[cnt];
+		for (int i = 0; i < a.length; i++)
+			if (a[i] > 0) ans[--cnt] = a[i];
+			
+		return ans;
+	}
+	
+Task 5
+
+	public static float[][] create(int n) {
+		return (new float[n][n]);
+	}
+	
+Task 6
+	//primitives are passed by value not be ref, so new instances are created which can not affect the initial variables(passed to func)
+	
+	
+	public static void vectorAdd(int[] x, int[] y, int dx, int dy) {
+		x[0] += dx;
+		y[0] += dy;
+	}
+	public static void main(String[] args) {
+		int[] a = {0};
+		int[] b = {2};
+		vectorAdd(a,b,1,1);
+		System.out.println(a[0]+" "+b[0]);
+	}
+
+Task 7&8
+https://github.com/ms2316/OOPS1
+
+Task 9
+
+Stack implements LIFO (last in, first out) system. 
+It is a data structure that serves as a collection of elements and supports two principal operations: 
+push and pop - add new element on top of stack and pop the top element from the stack.
+
+Task 10
+https://github.com/ms2316/OOPS1
